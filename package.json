@@ -11,15 +11,15 @@
     }
   },
   "lint-staged": {
-    "app/**/*.(ts|tsx)": [
+    "*.(js|ts|tsx)": [
       "yarn --silent lint:fix",
       "git add"
     ]
   },
   "scripts": {
     "start": "webpack-dev-server --open --hot",
-    "lint": "eslint --ext .ts,.tsx ./src",
-    "lint:fix": "npm run lint -- --fix"
+    "lint": "eslint --ext .js,.ts,.tsx .",
+    "lint:fix": "yarn lint --fix"
   },
   "devDependencies": {
     "@types/react": "^16.9.34",
