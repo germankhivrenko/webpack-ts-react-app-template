@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import * as Loadable from 'react-loadable';
 import PageLoading from '_components/PageLoading';
 import ProtectedRoute from '../ProtectedRoute';
@@ -16,7 +16,13 @@ const Dashboard = Loadable({
 
 const Routes: React.FC = () => (
   <Switch>
-    <Route path="/auth" component={Auth} />
+    <Route
+      exact
+      path="/"
+      render={(): JSX.Element => <Redirect to="/dashboard" />}
+    />
+
+    <ProtectedRoute path="/auth" documentTitle="Auth" component={Auth} />
     <ProtectedRoute
       path="/dashboard"
       documentTitle="Dashboard"
