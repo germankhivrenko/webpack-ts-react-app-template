@@ -1,10 +1,18 @@
+const path = require('path'); // eslint-disable-line
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line
 
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
+  devServer: {
+    port: 3000,
+    historyApiFallback: true,
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      _components: path.resolve(__dirname, 'src/components/'),
+    },
   },
   module: {
     rules: [
@@ -30,7 +38,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Document',
+      title: 'Application',
       template: './public/index.html',
     }),
   ],
