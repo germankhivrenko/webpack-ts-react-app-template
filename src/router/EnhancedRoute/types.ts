@@ -1,5 +1,5 @@
-export type ProtectedRouteProps = {
-  rules?: Array<() => string | null>;
+export type EnhancedRouteProps = {
+  // rules?: Array<() => string | null>;
   path: string;
   documentTitle: string;
   layout?: React.ComponentType;

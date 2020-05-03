@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import { Route } from 'react-router-dom';
-import { ProtectedRouteProps } from './types';
+import { EnhancedRouteProps } from './types';
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+const EnhancedRoute: React.FC<EnhancedRouteProps> = ({
   path,
   documentTitle,
   layout: Layout = React.Fragment,
@@ -22,4 +22,4 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   );
 };
 
-export default ProtectedRoute;
+export default EnhancedRoute;

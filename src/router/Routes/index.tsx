@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import * as Loadable from 'react-loadable';
 import PageLoading from '_components/PageLoading';
-import ProtectedRoute from '../ProtectedRoute';
+import EnhancedRoute from '../EnhancedRoute';
 
 const Auth = Loadable({
   loader: () => import('_components/Auth'),
@@ -16,14 +16,12 @@ const Dashboard = Loadable({
 
 const Routes: React.FC = () => (
   <Switch>
-    <Route
-      exact
-      path="/"
-      render={(): JSX.Element => <Redirect to="/dashboard" />}
-    />
+    <Route exact path="/">
+      <Redirect to="/dashboard" />
+    </Route>
 
-    <ProtectedRoute path="/auth" documentTitle="Auth" component={Auth} />
-    <ProtectedRoute
+    <EnhancedRoute path="/auth" documentTitle="Auth" component={Auth} />
+    <EnhancedRoute
       path="/dashboard"
       documentTitle="Dashboard"
       component={Dashboard}
