@@ -12,8 +12,7 @@
   },
   "lint-staged": {
     "*.(js|ts|tsx)": [
-      "yarn --silent lint:fix",
-      "git add"
+      "yarn lint"
     ]
   },
   "scripts": {
